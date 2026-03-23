@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Analyzers.ruleset" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="LICENSE" />
+    <File Path="NdlOcr.sln.DotSettings" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="NdlOcrExample/NdlOcrExample.csproj" Id="b134e64e-3501-4fc2-97fc-6874903c5117" />
+</Solution>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NdlOcrExample": {
+      "commandName": "Project",
+      "commandLineArgs": "--file input.jpg"
+    }
+  }
+}
