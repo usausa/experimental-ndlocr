@@ -21,7 +21,7 @@ public sealed class RootCommandHandler : ICommandHandler
     [Option<string>("--file", "-f", Description = "Image file path", Required = true)]
     public string ImageFile { get; set; } = default!;
 
-    [Option("--gpu", "-g", Description = "Use gpu device")]
+    [Option<bool>("--gpu", "-g", Description = "Use gpu device")]
     public bool UseGpu { get; set; }
 
     public ValueTask ExecuteAsync(CommandContext context)
