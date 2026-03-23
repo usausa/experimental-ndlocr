@@ -1,6 +1,6 @@
 # Experimental Project
 
-AI-generated sample that performs OCR on classical Japanese documents using the models from [NDLkotenOCR-Lite](https://github.com/ndl-lab/ndlocr-lite).
+AI-generated sample that performs OCR on classical Japanese documents using the models from [NDLOCR-Lite](https://github.com/ndl-lab/ndlocr-lite).
 
 ## Pipeline
 
