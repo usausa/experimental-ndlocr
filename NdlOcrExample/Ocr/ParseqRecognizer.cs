@@ -50,7 +50,7 @@ internal sealed class ParseqRecognizer : IDisposable
         session.Dispose();
     }
 
-    #pragma warning disable CA2000
+#pragma warning disable CA2000
     private static SKBitmap RotateImage(SKBitmap image)
     {
         var rotated = new SKBitmap(image.Height, image.Width, SKColorType.Rgba8888, SKAlphaType.Premul);
