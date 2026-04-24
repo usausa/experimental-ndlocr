@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.ML.OnnxRuntime.DirectML" Version="1.24.4" />
     <PackageReference Include="SkiaSharp" Version="3.119.2" />
     <PackageReference Include="System.CommandLine" Version="2.0.7" />
-    <PackageReference Include="Usa.Smart.CommandLine.Hosting" Version="2.3.3" />
+    <PackageReference Include="Usa.Smart.CommandLine.Hosting" Version="2.3.4" />
     <PackageReference Include="YamlDotNet" Version="17.0.1" />
   </ItemGroup>
 
