@@ -6,7 +6,7 @@ using System.Runtime.Intrinsics;
 internal static class PixelNormalizer
 {
     // Converts RGBA8888 pixel bytes to a 3-channel planar float tensor with normalization.
-    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
+    [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
     public static unsafe void Normalize(
         ReadOnlySpan<byte> pixels,
         Span<float> tensorBuffer,
