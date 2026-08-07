@@ -12,5 +12,5 @@
     <File Path="NdlOcr.sln.DotSettings" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="NdlOcrExample/NdlOcrExample.csproj" />
+  <Project Path="NdlOcrExample/NdlOcrExample.csproj" DefaultStartup="true" />
 </Solution>
