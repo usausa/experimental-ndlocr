@@ -45,7 +45,7 @@ internal sealed class DeimDetector : IDisposable
     public List<DetectResult> Detect(SKBitmap bitmap)
     {
         var inputTensor = PreProcess(bitmap, out var paddedSize);
-        var sizeTensor = new DenseTensor<long>(new long[] { inputHeight, inputWidth }, [1, 2]);
+        var sizeTensor = new DenseTensor<long>(new long[] { inputWidth, inputHeight }, [1, 2]);
         var inputs = new List<NamedOnnxValue>
         {
             NamedOnnxValue.CreateFromTensor(inputImageName, inputTensor),
@@ -65,9 +65,8 @@ internal sealed class DeimDetector : IDisposable
         using var canvas = new SKCanvas(resized);
         canvas.Clear(SKColors.Black);
 
-        var scaleX = (float)inputWidth / paddedSize;
-        var scaleY = (float)inputHeight / paddedSize;
-        var destRect = new SKRect(0, 0, bitmap.Width * scaleX, bitmap.Height * scaleY);
+        var scale = (float)Math.Min(inputWidth, inputHeight) / paddedSize;
+        var destRect = new SKRect(0, 0, bitmap.Width * scale, bitmap.Height * scale);
         canvas.DrawBitmap(bitmap, destRect);
         canvas.Flush();
 
@@ -101,8 +100,7 @@ internal sealed class DeimDetector : IDisposable
 
         var numDetections = scores.Dimensions[1];
 
-        var scaleX = (float)paddedSize / inputWidth;
-        var scaleY = (float)paddedSize / inputHeight;
+        var scale = (float)paddedSize / Math.Min(inputWidth, inputHeight);
 
         var detections = new List<DetectResult>();
 
@@ -125,15 +123,15 @@ internal sealed class DeimDetector : IDisposable
                 continue;
             }
 
-            var bx = boxes[0, i, 0] * scaleX;
-            var by = boxes[0, i, 1] * scaleY;
-            var bw = boxes[0, i, 2] * scaleX;
-            var bh = boxes[0, i, 3] * scaleY;
+            var left = boxes[0, i, 0] * scale;
+            var top = boxes[0, i, 1] * scale;
+            var right = boxes[0, i, 2] * scale;
+            var bottom = boxes[0, i, 3] * scale;
 
-            var x1 = Math.Max(0, (int)bx);
-            var y1 = Math.Max(0, (int)by);
-            var x2 = Math.Min(origWidth, (int)bw);
-            var y2 = Math.Min(origHeight, (int)bh);
+            var x1 = Math.Max(0, (int)left);
+            var y1 = Math.Max(0, (int)top);
+            var x2 = Math.Min(origWidth, (int)right);
+            var y2 = Math.Min(origHeight, (int)bottom);
 
             if ((x2 <= x1) || (y2 <= y1))
             {

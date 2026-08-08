@@ -56,7 +56,7 @@ public sealed class RootCommandHandler : ICommandHandler
         Console.WriteLine("Initializing detection model...");
         phaseWatch.Restart();
 
-        using var detector = new DeimDetector(detWeights, classNames, confThreshold: DetConfThreshold, useGpu: false);
+        using var detector = new DeimDetector(detWeights, classNames, confThreshold: DetConfThreshold, useGpu: UseGpu);
 
         Console.WriteLine($"Detection model initialized ({phaseWatch.ElapsedMilliseconds}ms)");
 
