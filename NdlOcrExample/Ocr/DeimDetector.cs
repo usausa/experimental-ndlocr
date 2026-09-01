@@ -197,7 +197,7 @@ internal sealed class DeimDetector : IDisposable
         var x2 = Math.Min(a.X + a.Width, b.X + b.Width);
         var y2 = Math.Min(a.Y + a.Height, b.Y + b.Height);
 
-        if (x2 <= x1 || y2 <= y1)
+        if ((x2 <= x1) || (y2 <= y1))
         {
             return 0f;
         }

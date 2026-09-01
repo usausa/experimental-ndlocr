@@ -114,7 +114,7 @@ public sealed class RootCommandHandler : ICommandHandler
             var w = Math.Min(det.Width, bitmap.Width - x);
             var h = Math.Min(det.Height, bitmap.Height - y);
 
-            if (w <= 0 || h <= 0)
+            if ((w <= 0) || (h <= 0))
             {
                 continue;
             }

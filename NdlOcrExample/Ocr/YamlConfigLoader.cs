@@ -14,7 +14,7 @@ internal static class YamlConfigLoader
         var doc = deserializer.Deserialize<Dictionary<string, object>>(yaml);
 
         var names = new Dictionary<int, string>();
-        if (doc.TryGetValue("names", out var namesObj) && namesObj is Dictionary<object, object> namesDict)
+        if (doc.TryGetValue("names", out var namesObj) && (namesObj is Dictionary<object, object> namesDict))
         {
             foreach (var kv in namesDict)
             {
@@ -36,7 +36,7 @@ internal static class YamlConfigLoader
             .Build();
         var doc = deserializer.Deserialize<Dictionary<string, object>>(yaml);
 
-        if (doc.TryGetValue("model", out var modelObj) && modelObj is Dictionary<object, object> modelDict)
+        if (doc.TryGetValue("model", out var modelObj) && (modelObj is Dictionary<object, object> modelDict))
         {
             if (modelDict.TryGetValue("charset_train", out var charsetObj))
             {
